@@ -26,3 +26,27 @@ datalad subdatasets --contains midterm_project --set-property url https://github
 ```bash
 chmod -R u+w <dataset>
 ```
+
+## Errors
+
+### Transfer already in progress
+
+#### What?
+
+```
+transfer already in progress, or unable to take transfer lock; Unable to access these remotes: origin; Try making some of these repositories available
+```
+
+#### Fix?
+
+- `rm -rf ./.git/annex/transfer/` (see [here](https://git-annex.branchable.com/forum/How_to_fix__58_____40__transfer_already_in_progress__44___or_/#comment-84a8489f52db87674fd256cfe68ab040))
+
+#### Why?
+
+- Did you cancel e.g., a `datalad get` operation with `ctrl` + `c`?
+
+#### References
+
+- https://git-annex.branchable.com/forum/How_to_fix__58_____40__transfer_already_in_progress__44___or_/
+- https://github.com/datalad/datalad/issues/2768
+- https://github.com/datalad/datalad/issues/5589
