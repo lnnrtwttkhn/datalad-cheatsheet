@@ -50,3 +50,34 @@ transfer already in progress, or unable to take transfer lock; Unable to access 
 - https://git-annex.branchable.com/forum/How_to_fix__58_____40__transfer_already_in_progress__44___or_/
 - https://github.com/datalad/datalad/issues/2768
 - https://github.com/datalad/datalad/issues/5589
+
+### 
+
+#### What?
+
+- Files seems to be still available in a dataset, although you ran `datalad drop`?
+- Are files saved under `.git/annex` but you can't really figure out where they are
+
+#### Fix
+
+```bash
+git annex drop --all
+```
+
+
+#### Why?
+
+It could be that files were on ...
+
+- a previous commit
+- a branch
+
+`datalad drop` can't drop files of a previous commit / on a branch, only from the current branch.
+
+#### References
+
+- https://github.com/datalad/datalad/issues/2328
+- https://github.com/datalad/datalad/issues/6009
+- https://git-annex.branchable.com/git-annex-drop/
+
+
