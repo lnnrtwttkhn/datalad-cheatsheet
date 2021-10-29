@@ -59,12 +59,12 @@ transfer already in progress, or unable to take transfer lock; Unable to access 
 - https://github.com/datalad/datalad/issues/2768
 - https://github.com/datalad/datalad/issues/5589
 
-### 
+### Dataset still uses a lot of space although I dropped all files?
 
 #### What?
 
 - Files seems to be still available in a dataset, although you ran `datalad drop`?
-- Are files saved under `.git/annex` but you can't really figure out where they are
+- Are files saved under `.git/annex` but you can't really figure out where they are?
 
 #### Fix
 
@@ -88,4 +88,18 @@ It could be that files were on ...
 - https://github.com/datalad/datalad/issues/6009
 - https://git-annex.branchable.com/git-annex-drop/
 
+### DataLad is slow
 
+#### Useful commands
+
+```bash
+time datalad status -e commit
+time datalad status -e commit -t raw
+git submodule foreach --recursive 'git status -s'
+git gc
+git annex fcsk
+```
+
+#### References
+
+- https://github.com/datalad/datalad/issues/4184
