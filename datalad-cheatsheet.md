@@ -27,6 +27,14 @@ datalad subdatasets --contains midterm_project --set-property url https://github
 chmod -R u+w <dataset>
 ```
 
+## Copy annexed data out of dataset without symlinks
+
+Make sure that annexed contents are present (i.e., run `datalad get` first)
+
+```bash
+rsync -PLr <source/> <destination/>
+```
+
 ## Errors
 
 ### Transfer already in progress
