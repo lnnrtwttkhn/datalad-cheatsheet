@@ -35,6 +35,18 @@ Make sure that annexed contents are present (i.e., run `datalad get` first)
 rsync -PLr <source/> <destination/>
 ```
 
+## Configure GIN "automatically"
+
+1. Create a separate git siblings (here `gin-git`)
+2. autoenable the gin sibling under a new name (here `gin`)
+
+```
+datalad siblings add -s gin-git --url https://gin.g-node.org/lnnrtwttkhn/highspeed-analysis
+git annex initremote gin type=git location=https://gin.g-node.org/lnnrtwttkhn/highspeed-analysis autoenable=true
+```
+
+make sure to omit the `.git` extension from the URL!
+
 ## Errors
 
 ### Transfer already in progress
