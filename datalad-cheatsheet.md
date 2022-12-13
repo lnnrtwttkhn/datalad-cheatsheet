@@ -47,6 +47,12 @@ git annex initremote gin type=git location=https://gin.g-node.org/lnnrtwttkhn/hi
 
 make sure to omit the `.git` extension from the URL!
 
+## Change URL of subdataset
+
+```bash
+datalad subdatasets --contains <subdataset_name> --set-property url <subdataset_url>
+```
+
 ## Errors
 
 ### Transfer already in progress
